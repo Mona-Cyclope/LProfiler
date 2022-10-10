@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 try: 
     import networkx as nx
     from networkx.drawing.nx_pydot import graphviz_layout
+    import pydot
 except:
     print("networkx not installed: no graph image")
 
@@ -256,11 +257,15 @@ if __name__ == "__main__":
     n = len(func_calls)
     min_perc_time = 0.01
     fig,axs = plt.subplots(n, figsize=(10,4.0*n), sharex=False)
+    if n==1: axs=[axs]
 
     for i in range(n):
         function = func_calls[i]['header']['Function']
         tag = func_calls[i]['tag']
-        color = tag2node[tag]['color']
+        try:
+            color = tag2node[tag]['color']
+        except:
+            color='blue'
         plot_func_call(func_calls[i], min_perc_time=min_perc_time, ax=axs[i], set_x_label=True, color=color)
     plt.tight_layout()
     plt.savefig('{}_line.png'.format(profile_file_path))
