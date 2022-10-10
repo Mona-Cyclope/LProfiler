@@ -58,7 +58,7 @@ You can either look directly at the .prof file or run it thourgh this visualizat
 
 You can use it as command line to output 2 images and the excel table.
 ```
-python prof_func.py --profile_file_path=<.prof file>
+python lprofiler.py --profile_file_path=<.prof file>
 ```
 
 ### Arguments
@@ -75,7 +75,7 @@ python prof_func.py --profile_file_path=<.prof file>
 ## Example of use on a notebook
 
 ```
-from Profiler.prof_func import LineProfile
+from Profiler.lprofiler import LineProfile
 import matplotlib.pyplot as plt
 import seaborn as sns
 import re
