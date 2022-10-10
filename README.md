@@ -1,7 +1,7 @@
 # Requirements
 
 
-## install the profiler and required packages in your dev env
+## install the profiler (IN DEV ENV)
 
 The line profiler must be in the same environment where you are running the code you want to profile.
 
@@ -15,7 +15,7 @@ to run the comand line and export the visuals and the xlsx install the following
 These packages do not need to be installed in your dev environment.
 
 ```
-conda install pandas networkx seaborn xlsxwriter
+conda install pandas networkx seaborn xlsxwriter pydot
 ```
 
 # Profiling
@@ -46,7 +46,7 @@ to add a tag to the function: just add this in the body
 At the end of the execution (must stop the application) the profile data will be stored in the `run_prof.dat`
 this file must be interpreted by the line_profiler to get readeable output to the `run_prof.prof`
 ```
-kernprof -l -z -o run_prof.dat (command to launch);
+kernprof -l -z -o run_prof.dat ( entrypoint file e.g. main.py );
 python -m line_profiler run_prof.dat > run_prof.prof
 ```
 
